@@ -1,21 +1,45 @@
-from CSP_6_02_reading_files import toString, longestLine, toBinary
+import os
+
+def toString(fileName):
+    # This function returns the text from a given file.
+    # Any new lines are written as \n
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, fileName)
+
+    with open(file_path, "r") as f:
+        return f.read()
 
 
-def test_toString():
-    # ExampleText.txt contains:
-    # Here is the text
-    # i am another line
-    # short
-    assert toString("ExampleText.txt") == "Here is the text\ni am another line\nshort\n"
+def longestLine(fileName):
+    # Given a file return the longest line from within that file
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, fileName)
+
+    longest = ""
+
+    with open(file_path, "r") as f:
+        for line in f:
+            cleanLine = line.rstrip("\n")
+            if len(cleanLine) > len(longest):
+                longest = cleanLine
+
+    return longest
 
 
-def test_longestLine():
-    # Longest line in ExampleText.txt is:
-    # i am another line
-    assert longestLine("ExampleText.txt") == "i am another line"
+def toBinary(fileName):
+    # Given a file that is only 0's and 1's return a list
+    # broken into groups of 8 (bytes)
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, fileName)
 
+    data = ""
 
-def test_toBinary():
-    # BinaryExample.txt contains:
-    # 01101001001010101010
-    assert toBinary("BinaryExample.txt") == ['01101001', '00101010', '1010']
+    with open(file_path, "r") as f:
+        for line in f:
+            data += line.strip()
+
+    bytesList = []
+    for i in range(0, len(data), 8):
+        bytesList.append(data[i:i+8])
+
+    return bytesList
