@@ -1,0 +1,13 @@
+import fileFunctions
+
+# Test toString
+print("Testing toString:")
+print(fileFunctions.toString("ExampleText.txt"))
+
+# Test longestLine
+print("\nTesting longestLine:")
+print(fileFunctions.longestLine("ExampleText.txt"))
+
+# Test toBinary
+print("\nTesting toBinary:")
+print(fileFunctions.toBinary("BinaryExample.txt"))
