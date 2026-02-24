@@ -1,4 +1,4 @@
-from CSP_6_02_reading_files (1).py import toString, longestLine, toBinary
+from CSP_6_02_reading_files import toString, longestLine, toBinary
 
 
 def test_toString():
