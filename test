@@ -1,13 +1,21 @@
-import fileFunctions
+import fileFunctions as HW
 
-# Test toString
-print("Testing toString:")
-print(fileFunctions.toString("ExampleText.txt"))
 
-# Test longestLine
-print("\nTesting longestLine:")
-print(fileFunctions.longestLine("ExampleText.txt"))
+def test_toString():
+    # ExampleText.txt contains:
+    # Here is the text
+    # i am another line
+    # short
+    assert HW.toString("ExampleText.txt") == "Here is the text\ni am another line\nshort\n"
 
-# Test toBinary
-print("\nTesting toBinary:")
-print(fileFunctions.toBinary("BinaryExample.txt"))
+
+def test_longestLine():
+    # Longest line in ExampleText.txt is:
+    # i am another line
+    assert HW.longestLine("ExampleText.txt") == "i am another line"
+
+
+def test_toBinary():
+    # BinaryExample.txt contains:
+    # 01101001001010101010
+    assert HW.toBinary("BinaryExample.txt") == ['01101001', '00101010', '1010']
